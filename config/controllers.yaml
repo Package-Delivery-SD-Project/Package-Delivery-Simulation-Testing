@@ -1,0 +1,39 @@
+wheel_r1_joint_velocity_controller:
+  type: "velocity_controllers/JointVelocityController"
+  joint: "wheel_r1_joint"
+  pid: {p: 120.0, i: 0.05, d: 0.8}
+
+real_wheel_r1_joint_velocity_controller:
+  type: "velocity_controllers/JointVelocityController"
+  joint: "real_wheel_r1_joint"
+  pid: {p: 110.0, i: 0.02, d: 0.9}
+
+wheel_f1_joint_velocity_controller:
+  type: "velocity_controllers/JointVelocityController"
+  joint: "wheel_f1_joint"
+  pid: {p: 130.0, i: 0.03, d: 1.2}
+
+real_wheel_f1_joint_velocity_controller:
+  type: "velocity_controllers/JointVelocityController"
+  joint: "real_wheel_f1_joint"
+  pid: {p: 115.0, i: 0.04, d: 1.0}
+
+wheel_r2_joint_velocity_controller:
+  type: "velocity_controllers/JointVelocityController"
+  joint: "wheel_r2_joint"
+  pid: {p: 125.0, i: 0.06, d: 1.1}
+
+real_wheel_r2_joint_velocity_controller:
+  type: "velocity_controllers/JointVelocityController"
+  joint: "real_wheel_r2_joint"
+  pid: {p: 140.0, i: 0.07, d: 1.3}
+
+wheel_f2_joint_velocity_controller:
+  type: "velocity_controllers/JointVelocityController"
+  joint: "wheel_f2_joint"
+  pid: {p: 135.0, i: 0.05, d: 1.0}
+
+real_wheel_f2_joint_velocity_controller:
+  type: "velocity_controllers/JointVelocityController"
+  joint: "real_wheel_f2_joint"
+  pid: {p: 120.0, i: 0.02, d: 1.1}

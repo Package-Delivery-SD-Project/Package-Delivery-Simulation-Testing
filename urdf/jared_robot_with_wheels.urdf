@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="delivery_robot">
+  <link name="dummy_link" />
+
+  <joint name="dummy_joint" type="fixed">
+    <parent link="dummy_link" />
+    <child link="base_link" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </joint>
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.010935 -0.030407 0.054599"
+        rpy="0 0 0" />
+      <mass
+        value="0.92997" />
+      <inertia
+        ixx="0.0079514"
+        ixy="-1.1522E-08"
+        ixz="5.938E-10"
+        iyy="0.012166"
+        iyz="2.7431E-08"
+        izz="0.019879" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://delivery_robot/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://delivery_robot/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="wheel_r1_link">
+    <inertial>
+      <origin
+        xyz="-2.77555756156289E-17 -0.01905 -6.93889390390723E-18"
+        rpy="0 0 0" />
+      <mass
+        value="0.00925034546157725" />
+      <inertia
+        ixx="1.26237123251708E-06"
+        ixy="-2.68139427113751E-39"
+        ixz="3.9715781344532E-55"
+        iyy="2.86760135787476E-07"
+        iyz="5.18315748524543E-24"
+        izz="1.26237123251708E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://delivery_robot/meshes/wheel_r1_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://delivery_robot/meshes/wheel_r1_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheel_r1_joint"
+    type="continuous">
+    <origin
+      xyz="0.13799 0.11056 0.03863"
+      rpy="3.1416 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheel_r1_link" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="real_wheel_r1_link">
+    <inertial>
+      <origin
+        xyz="6.74635390052192E-06 1.18862929219116E-05 -0.022225"
+        rpy="0 0 0" />
+      <mass
+        value="0.837780520459389" />
+      <inertia
+        ixx="0.00151305128968288"
+        ixy="-1.05291714394583E-07"
+        ixz="3.71419242818938E-21"
+        iyy="0.00151267393371603"
+        iyz="-4.34580762946475E-21"
+        izz="0.00278701331152993" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://delivery_robot/meshes/real_wheel_r1_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://delivery_robot/meshes/real_wheel_r1_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="real_wheel_r1_joint"
+    type="continuous">
+    <origin
+      xyz="0 -0.0254 0"
+      rpy="-1.5708 0.75515 0" />
+    <parent
+      link="wheel_r1_link" />
+    <child
+      link="real_wheel_r1_link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="wheel_f1_link">
+    <inertial>
+      <origin
+        xyz="-1.38777878078145E-17 0.01905 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.00925034546157725" />
+      <inertia
+        ixx="1.26237123251708E-06"
+        ixy="-2.68139427113751E-39"
+        ixz="-3.9715781344532E-55"
+        iyy="2.86760135787476E-07"
+        iyz="-3.62940203436553E-38"
+        izz="1.26237123251708E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://delivery_robot/meshes/wheel_f1_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://delivery_robot/meshes/wheel_f1_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheel_f1_joint"
+    type="continuous">
+    <origin
+      xyz="-0.11601 0.11056 0.03863"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheel_f1_link" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="real_wheel_f1_link">
+    <inertial>
+      <origin
+        xyz="6.7463539005358E-06 1.18862929219671E-05 0.022225"
+        rpy="0 0 0" />
+      <mass
+        value="0.837780520459389" />
+      <inertia
+        ixx="0.00151305128968288"
+        ixy="-1.05291714394339E-07"
+        ixz="-1.06298982490433E-21"
+        iyy="0.00151267393371603"
+        iyz="-5.71971116817966E-23"
+        izz="0.00278701331152993" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://delivery_robot/meshes/real_wheel_f1_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://delivery_robot/meshes/real_wheel_f1_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="real_wheel_f1_joint"
+    type="continuous">
+    <origin
+      xyz="0 0.0254 0"
+      rpy="-1.5708 -0.1063 0" />
+    <parent
+      link="wheel_f1_link" />
+    <child
+      link="real_wheel_f1_link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="wheel_r2_link">
+    <inertial>
+      <origin
+        xyz="0 0.01905 2.08166817117217E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.00925034546157725" />
+      <inertia
+        ixx="1.26237123251708E-06"
+        ixy="-2.68139427113751E-39"
+        ixz="-4.96447266806645E-56"
+        iyy="2.86760135787476E-07"
+        iyz="-1.49033559525697E-22"
+        izz="1.26237123251708E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://delivery_robot/meshes/wheel_r2_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://delivery_robot/meshes/wheel_r2_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheel_r2_joint"
+    type="continuous">
+    <origin
+      xyz="0.13791 -0.17138 0.038807"
+      rpy="3.1416 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheel_r2_link" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="real_wheel_r2_link">
+    <inertial>
+      <origin
+        xyz="6.74635390051498E-06 1.18862929219254E-05 -0.022225"
+        rpy="0 0 0" />
+      <mass
+        value="0.837780520459389" />
+      <inertia
+        ixx="0.00151305128968288"
+        ixy="-1.05291714394394E-07"
+        ixz="-9.89021711443493E-20"
+        iyy="0.00151267393371603"
+        iyz="6.95362221279974E-21"
+        izz="0.00278701331152993" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://delivery_robot/meshes/real_wheel_r2_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://delivery_robot/meshes/real_wheel_r2_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="real_wheel_r2_joint"
+    type="continuous">
+    <origin
+      xyz="0 0.0254 0"
+      rpy="-1.5708 -1.5106 3.1416" />
+    <parent
+      link="wheel_r2_link" />
+    <child
+      link="real_wheel_r2_link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="wheel_f2_link">
+    <inertial>
+      <origin
+        xyz="-2.77555756156289E-17 0.01905 5.55111512312578E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.00925034546157725" />
+      <inertia
+        ixx="1.26237123251708E-06"
+        ixy="6.7231285611538E-24"
+        ixz="0"
+        iyy="2.86760135787476E-07"
+        iyz="-1.58038263479407E-23"
+        izz="1.26237123251708E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://delivery_robot/meshes/wheel_f2_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://delivery_robot/meshes/wheel_f2_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheel_f2_joint"
+    type="continuous">
+    <origin
+      xyz="-0.11609 -0.17138 0.038807"
+      rpy="0 0.17094 -3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheel_f2_link" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="real_wheel_f2_link">
+    <inertial>
+      <origin
+        xyz="6.74635390054967E-06 1.18862929218769E-05 0.022225"
+        rpy="0 0 0" />
+      <mass
+        value="0.837780520459389" />
+      <inertia
+        ixx="0.00151305128968288"
+        ixy="-1.05291714394854E-07"
+        ixz="1.69141346237133E-19"
+        iyy="0.00151267393371603"
+        iyz="8.80229443436177E-20"
+        izz="0.00278701331152993" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://delivery_robot/meshes/real_wheel_f2_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://delivery_robot/meshes/real_wheel_f2_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="real_wheel_f2_joint"
+    type="continuous">
+    <origin
+      xyz="0 0.0254 0"
+      rpy="1.5708 0.71507 3.1416" />
+    <parent
+      link="wheel_f2_link" />
+    <child
+      link="real_wheel_f2_link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+</robot>

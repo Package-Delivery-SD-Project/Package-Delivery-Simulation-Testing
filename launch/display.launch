@@ -1,0 +1,34 @@
+<launch>
+  <!-- Load the URDF model parameter -->
+  <param name="robot_description" command="cat $(find delivery_robot)/urdf/jared_robot_with_wheels.urdf" />
+
+  <!-- Joint State Publisher GUI for visualizing and controlling joint states -->
+  <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />
+
+  <!-- Robot State Publisher to publish transforms from URDF -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+
+  <!-- RViz for visualization -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find delivery_robot)/config/urdf.rviz" />
+
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find delivery_robot)/maps/map.yaml" />
+
+  <!-- Static Transform Publisher from map to base_link -->
+  <node pkg="tf2_ros" type="static_transform_publisher" name="base_link_to_map" args="0 0 0 0 0 0 map base_link" />
+
+  <!-- Static Transform Publisher from map to dummy_link -->
+  <node pkg="tf2_ros" type="static_transform_publisher" name="map_to_dummy_link" args="0 0 0 0 0 0 map dummy_link" />
+
+  <!-- Static Transform Publishers for each wheel -->
+  <node pkg="tf2_ros" type="static_transform_publisher" name="base_link_to_wheel_f1" args="0.11601 0.11056 0.03863 0 0 0 base_link wheel_f1_link" />
+  <node pkg="tf2_ros" type="static_transform_publisher" name="base_link_to_wheel_r1" args="0.13799 0.11056 0.03863 3.1416 0 0 base_link wheel_r1_link" />
+  <node pkg="tf2_ros" type="static_transform_publisher" name="base_link_to_wheel_f2" args="-0.11609 -0.17138 0.038807 0 0.17094 -3.1416 base_link wheel_f2_link" />
+  <node pkg="tf2_ros" type="static_transform_publisher" name="base_link_to_wheel_r2" args="0.13791 -0.17138 0.038807 3.1416 0 0 base_link wheel_r2_link" />
+
+  <!-- Static Transforms for real wheels if needed -->
+  <node pkg="tf2_ros" type="static_transform_publisher" name="wheel_r1_to_real_wheel_r1" args="0 -0.0254 0 -1.5708 0.75515 0 wheel_r1_link real_wheel_r1_link" />
+  <node pkg="tf2_ros" type="static_transform_publisher" name="wheel_f1_to_real_wheel_f1" args="0 0.0254 0 -1.5708 -0.1063 0 wheel_f1_link real_wheel_f1_link" />
+  <node pkg="tf2_ros" type="static_transform_publisher" name="wheel_r2_to_real_wheel_r2" args="0 0.0254 0 -1.5708 -1.5106 3.1416 wheel_r2_link real_wheel_r2_link" />
+  <node pkg="tf2_ros" type="static_transform_publisher" name="wheel_f2_to_real_wheel_f2" args="0 0.0254 0 1.5708 0.71507 3.1416 wheel_f2_link real_wheel_f2_link" />
+
+</launch>

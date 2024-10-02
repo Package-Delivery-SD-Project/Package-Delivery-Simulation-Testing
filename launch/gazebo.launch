@@ -1,0 +1,57 @@
+<launch>
+  <!-- Start Gazebo with an empty world -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch" />
+    
+  <!-- Static transform publisher to connect base_link and base_footprint -->
+  <node
+    name="tf_footprint_base"
+    pkg="tf"
+    type="static_transform_publisher"
+    args="0 0 0 0 0 0 base_link base_footprint 40" />
+  
+  <!-- Spawn the robot model in Gazebo -->
+  <node
+    name="spawn_model"
+    pkg="gazebo_ros"
+    type="spawn_model"
+    args="-file $(find delivery_robot)/urdf/jared_robot_with_wheels.urdf -urdf -model jared_robot_with_wheels"
+    output="screen" />
+  
+  <!-- Fake joint calibration publisher -->
+  <node
+    name="fake_joint_calibration"
+    pkg="rostopic"
+    type="rostopic"
+    args="pub /calibrated std_msgs/Bool true" />
+
+  <!-- Load the controller parameters -->
+  <rosparam file="$(find delivery_robot)/config/controllers.yaml" command="load" />
+
+  <!-- Spawn all joint velocity controllers -->
+  <node
+    name="controller_spawner"
+    pkg="controller_manager"
+    type="spawner"
+    respawn="false"
+    output="screen"
+    args="
+      joint1_velocity_controller
+      joint2_velocity_controller
+      wheel_r1_joint_velocity_controller
+      real_wheel_r1_joint_velocity_controller
+      wheel_f1_joint_velocity_controller
+      real_wheel_f1_joint_velocity_controller
+      wheel_r2_joint_velocity_controller
+      real_wheel_r2_joint_velocity_controller
+      wheel_f2_joint_velocity_controller
+      real_wheel_f2_joint_velocity_controller
+    " />
+
+  <!-- Start the teleop controller for controlling the robot -->
+  <node
+    name="teleop_controller"
+    pkg="delivery_robot"
+    type="teleop_controller.py"
+    output="screen" />
+    
+</launch>
